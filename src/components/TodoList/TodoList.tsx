@@ -1,10 +1,11 @@
 import { Button, Input, List, ListItem, Typography } from '@mui/material';
 import { memo, useState } from 'react';
-import useTodoStore from '../../store';
+import store from '../../store';
 import { IToDo } from '../../types/';
 
 const TodoList = () => {
-    const { todos, addTodo, removeTodo, toggleTodo } = useTodoStore();
+    const { todos, addTodo, removeTodo, toggleTodo } = store();
+
     const [newTodo, setNewTodo] = useState('');
 
     const handleAddTodo = () => {
@@ -30,7 +31,7 @@ const TodoList = () => {
             <List>
                 {todos.map((todo: IToDo) => (
                     <ListItem key={todo.id}>
-                        <span
+                        <Typography
                             style={{
                                 textDecoration: todo.completed ? 'line-through' : 'none',
                                 cursor: 'pointer'
@@ -38,7 +39,7 @@ const TodoList = () => {
                             onClick={() => toggleTodo(todo.id)}
                         >
                             {todo.text}
-                        </span>
+                        </Typography>
                         <Button onClick={() => removeTodo(todo.id)}>Delete</Button>
                     </ListItem>
                 ))}
