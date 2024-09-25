@@ -1,0 +1,90 @@
+{
+    "name": "react-todo-app-zustand",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "build": "tsc && vite build",
+        "commit": "git-cz",
+        "dev": "vite",
+        "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}'",
+        "lint:fix": "eslint --fix",
+        "lint": "eslint ./",
+        "lintFix": "eslint ./ --fix",
+        "precommit": "lint-staged",
+        "prepare": "husky install",
+        "prepush": "npm run lint",
+        "preview": "vite preview",
+        "test": "vitest"
+    },
+    "dependencies": {
+        "@emotion/react": "^11.13.3",
+        "@emotion/styled": "^11.13.0",
+        "@fontsource/roboto": "^5.1.0",
+        "@mui/material": "^6.1.1",
+        "@mui/styled-engine-sc": "^6.1.1",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "styled-components": "^6.1.13",
+        "zustand": "^5.0.0-rc.2"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^19.5.0",
+        "@commitlint/config-conventional": "^19.5.0",
+        "@testing-library/jest-dom": "^6.5.0",
+        "@testing-library/react": "^16.0.1",
+        "@testing-library/user-event": "^14.5.2",
+        "@types/react": "^18.3.9",
+        "@types/react-dom": "^18.3.0",
+        "@typescript-eslint/eslint-plugin": "^8.7.0",
+        "@typescript-eslint/parser": "^7.18.0",
+        "@vitejs/plugin-react": "^4.2.1",
+        "autoprefixer": "^10.4.20",
+        "commitizen": "^4.3.0",
+        "eslint": "^9.11.1",
+        "eslint-config-airbnb": "^19.0.4",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-import": "^2.30.0",
+        "eslint-plugin-jsx-a11y": "^6.10.0",
+        "eslint-plugin-prettier": "^5.2.1",
+        "eslint-plugin-react": "^7.36.1",
+        "eslint-plugin-react-hooks": "^4.6.2",
+        "eslint-plugin-react-refresh": "^0.4.12",
+        "git-cz": "^4.9.0",
+        "husky": "^9.1.6",
+        "jsdom": "^25.0.1",
+        "lint-staged": "^15.2.10",
+        "prettier": "^3.3.3",
+        "typescript": "^5.6.2",
+        "vite": "^5.4.8",
+        "vitest": "^2.1.1"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "lint-staged": {
+        "**/*.{js,jsx,ts,tsx,json}": [
+            "yarn lint",
+            "yarn format"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "yarn precommit"
+        }
+    },
+    "config": {
+        "commitizen": {
+            "path": "git-cz"
+        }
+    }
+}
