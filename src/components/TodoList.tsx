@@ -1,7 +1,7 @@
 import { Button, Input, List, ListItem, Typography } from '@mui/material';
+import store from '@store/Store';
 import { IToDo, IToDoList } from '@typing/index';
 import { memo, useState } from 'react';
-import store from '../store';
 
 const TodoList = () => {
     const { todos, addTodo, removeTodo, toggleTodo }: IToDoList = store();
