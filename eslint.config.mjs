@@ -1,9 +1,8 @@
-import react from "eslint-plugin-react";
-import globals from "globals";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-import js from "@eslint/js";
-import { FlatCompat } from "@eslint/eslintrc";
+import { FlatCompat } from '@eslint/eslintrc';
+import js from '@eslint/js';
+import react from 'eslint-plugin-react';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -13,43 +12,31 @@ const compat = new FlatCompat({
     allConfig: js.configs.all
 });
 
-export default [{
-    ignores: ["**/build", "**/coverage", "**/dist", "**/node_modules", "**/assets"],
-}, ...compat.extends(
-    "standard",
-    "plugin:react/recommended",
-    "plugin:react/jsx-runtime",
-    "prettier",
-), {
-    plugins: {
-        react,
+export default [
+    {
+        ignores: ['**/build', '**/coverage', '**/dist', '**/node_modules', '**/assets']
     },
-
-    languageOptions: {
-        globals: {
-            ...globals.browser,
+    ...compat.extends('standard', 'plugin:react/recommended', 'plugin:react/jsx-runtime', 'prettier'),
+    {
+        plugins: {
+            react
         },
-
-        ecmaVersion: "latest",
-        sourceType: "module",
-    },
-
-    settings: {
-        react: {
-            version: "detect",
+        languageOptions: {
+            ecmaVersion: 'latest',
+            sourceType: 'module'
         },
-    },
-
-    rules: {},
-}, {
-    files: ["**/.eslintrc.{js,cjs}"],
-
-    languageOptions: {
-        globals: {
-            ...globals.node,
+        settings: {
+            react: {
+                version: 'detect'
+            }
         },
-
-        ecmaVersion: 5,
-        sourceType: "commonjs",
+        rules: {}
     },
-}];
+    {
+        files: ['**/.eslintrc.{js,cjs}'],
+        languageOptions: {
+            ecmaVersion: 5,
+            sourceType: 'commonjs'
+        }
+    }
+];
