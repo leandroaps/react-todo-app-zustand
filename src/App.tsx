@@ -1,8 +1,8 @@
+import Copyright from '@components/CopyRight';
+import Footer from '@components/Footer';
+import TodoList from '@components/TodoList';
 import { Container } from '@mui/material';
 import { memo } from 'react';
-import Copyright from './components/CopyRight/CopyRight';
-import Footer from './components/Footer/Footer';
-import TodoList from './components/TodoList/TodoList';
 
 function App() {
     return (
